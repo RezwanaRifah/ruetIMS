@@ -66,7 +66,7 @@ require 'partials/_dbConnector.php';
                     echo "<h2 class='text-center'>Room No: " . htmlspecialchars($roomNo) . "</h2>";
                     echo "<table class='table table-bordered table-hover mt-4'>";
                     echo "<thead class='table-dark'>";
-                    echo "<tr><th>ID</th><th>Name</th><th>Room No</th><th>Condition</th></tr>";
+                    echo "<tr><th>ID</th><th>Name</th><th>Room No</th><th>Condition</th><th>Update</th><th>Delete</th></tr>";
                     echo "</thead>";
                     echo "<tbody>";
                     foreach ($equipments as $equipment) {
@@ -75,6 +75,8 @@ require 'partials/_dbConnector.php';
                         echo "<td>" . htmlspecialchars($equipment['Name']) . "</td>";
                         echo "<td>" . htmlspecialchars($equipment['RoomNo']) . "</td>";
                         echo "<td>" . ($equipment['Condition'] == 1 ? "<span class='badge bg-success'>Good</span>" : "<span class='badge bg-danger'>Bad</span>") . "</td>";
+                        echo "<td><a href='updateEquipment.php?id=" . $equipment['Id'] . "' class='btn btn-warning btn-sm'>Update</a></td>";
+                        echo "<td><a href='deleteEquipment.php?id=" . $equipment['Id'] . "' class='btn btn-danger btn-sm'>Delete</a></td>";
                         echo "</tr>";
                     }
                     echo "</tbody>";
