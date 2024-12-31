@@ -7,7 +7,7 @@ require '../partials/_dbConnector.php';
 
 try {
     // Check if department exists
-    $sql_dept = "SELECT `ShortName` FROM `departments` WHERE `FullName` = ?";
+    $sql_dept = "SELECT ShortName FROM departments WHERE FullName = ?";
     $stmt_dept = $conn->prepare($sql_dept);
 
     if (!$stmt_dept) {
@@ -22,7 +22,7 @@ try {
 
     if ($departmentShortName) {
         // Fetch classes by department
-        $sql_classes = "SELECT * FROM `rooms` WHERE `Department` = ? AND `RoomType` = 'class'";
+        $sql_classes = "SELECT * FROM rooms WHERE Department = ? AND RoomType = 'class'";
         $stmt_classes = $conn->prepare($sql_classes);
 
         if (!$stmt_classes) {
